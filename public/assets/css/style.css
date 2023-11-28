@@ -1,0 +1,143 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+/* Globals */
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    color: var(--color_Light1); /* Ajout de la couleur blanche pour tous les textes */
+}
+
+/* Variables */
+:root {
+    --color_Blue: #3f93f1;
+    --color_Dark1: #000000; /* Noir profond */
+    --color_Dark2: #252527;
+    --color_Light1: #dfdfdf;
+    --color_Light2: #c4c4c4;
+}
+
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 140px; /* Ajustez la largeur souhaitée lorsque la sidebar est ouverte */
+    background-color: black; /* Couleur de fond noire */
+    transition: all 0.5s ease;
+    z-index: 100;
+    overflow-y: auto;
+    padding-top: 100px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Ombre pour la profondeur */
+}
+
+.sidebar.close {
+    width: 35px; /* Ajustez la largeur lorsque la sidebar est fermée */
+}
+
+/* Styles pour les icônes de la sidebar */
+.sidebar-icon {
+    display: flex;
+    align-items: center;
+    padding: 10px; /* Ajuster l'espace autour de chaque icône */
+    transition: all 0.5s ease;
+}
+
+.sidebar-icon:hover {
+    background-color: var(--color_Dark1);
+}
+
+.sidebar-icon i {
+    margin-right: 10px; /* Espace à droite de l'icône */
+}
+
+/* Sidebar List */
+.sidebar-list {
+    padding: 20px 0; /* Augmenter l'espace en haut */
+    margin-top: 20px; /* Espacement en haut de la liste */
+    overflow: auto;
+}
+
+.sidebar-list li {
+    margin-bottom: 10px; /* Espacement entre chaque élément de la liste */
+    transition: all 0.5s ease;
+}
+
+.sidebar-list li .title {
+    padding: 15px; /* Ajustez cette valeur selon vos besoins */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.sidebar-list li.active .title {
+    background-color: var(--color_Blue);
+}
+
+/* Navbar */
+.navbar {
+    background-color: var(--color_Dark1); /* Couleur de fond noire */
+    padding: 10px; /* Ajuster la marge intérieure */
+    display: flex;
+    justify-content: space-between; /* Aligner les éléments à l'extrémité */
+    align-items: center;
+}
+
+/* Toggle Sidebar Button */
+.toggle-sidebar {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    margin-left: 0px; /* Ajustez la marge souhaitée à gauche */
+    z-index: 101; /* Assurez-vous que le bouton est au-dessus de la sidebar */
+}
+
+.toggle-sidebar .text {
+    margin-left: 15px; /* Ajoutez la marge souhaitée à gauche */
+}
+
+/* Home Section */
+.home {
+    position: relative;
+    background-color: var(--color_Dark1);
+    left: 8px; /* Ajustez la position lorsque la sidebar est ouverte */
+    width: calc(100% - 8px); /* Ajustez la largeur lorsque la sidebar est ouverte */
+    height: 0vh;
+    transition: all 0.5s ease;
+}
+
+/* Toggle Sidebar Button in Home Section */
+.home .toggle-sidebar {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 0 10px; /* Ajuster la marge intérieure */
+}
+
+/* Media Query pour les écrans mobiles */
+@media (max-width: 768px) {
+    .toggle-sidebar {
+        margin-left: 5px; /* Ajustez la marge souhaitée à gauche pour les écrans mobiles */
+    }
+
+    .home {
+        left: 5px; /* Ajustez la position lorsque la sidebar est fermée sur les écrans mobiles */
+        width: calc(100% - 5px); /* Ajustez la largeur lorsque la sidebar est fermée sur les écrans mobiles */
+    }
+
+    .sidebar.close {
+        width: 35px; /* Ajustez la largeur souhaitée lorsque la sidebar est fermée sur les écrans mobiles */
+    }
+
+    /* Ajoutez d'autres styles pour les écrans mobiles si nécessaire */
+}
+#clickable-icon {
+    margin-left: 0; /* Add the desired amount of space */
+}
