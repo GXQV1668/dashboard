@@ -1,3 +1,42 @@
 homepage:
     path: /
     controller: App\Controller\HomeController::index
+
+board:
+    path: /board
+    controller: App\Controller\BoardController::index
+
+dashboard:
+    path: /dashboard
+    controller: App\Controller\DashboardController::index
+
+demand:
+    path: /demand
+    controller: App\Controller\DemandController::index
+
+event:
+    path: /event
+    controller: App\Controller\EventController::index
+eventmanager:
+    path: /eventmanager
+    controller: App\Controller\EventManagerController::index
+
+masterdashboard:
+    path: /masterdashboard
+    controller: App\Controller\MasterDashboardController::index
+
+search:
+    path: /search
+    controller: App\Controller\SearchController::index
+
+settings:
+    path: /settings
+    controller: App\Controller\SettingsController::index
+
+transfert:
+    path: /transfert
+    controller: App\Controller\TransfertController::index
+
+useradministration:
+    path: /useradministration
+    controller: App\Controller\UserAdministrationController::index

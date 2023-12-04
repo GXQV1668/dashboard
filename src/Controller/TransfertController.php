@@ -1,18 +1,18 @@
 <?php
-// src/Controller/HomeController.php
+
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class HomeController extends AbstractController
+class TransfertController extends AbstractController
 {
-    /**
-     * @Route("/home", name="home_index")
-     */
+    /*#[Route('/transfert', name: 'app_transfert')]*/
     public function index(): Response
     {
-        return $this->render('home/home.html.twig');
+        return $this->render('transfert/index.html.twig', [
+            'controller_name' => 'TransfertController',
+        ]);
     }
 }

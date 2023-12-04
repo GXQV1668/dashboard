@@ -1,0 +1,19 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}MDS vxxxxx{% endblock %}
+
+{% block body %}
+    <h1 style="text-align: center;">MDS vxxxxx</h1>
+    <div style="text-align: right;">{{ "now"|date("Y-m-d H:i:s") }}</div>
+
+    <!-- Ajoutez vos icônes de filtres ici, par exemple -->
+    <div style="display: flex; justify-content: space-between; margin-top: 20px;">
+        <i class="bx bx-filter"></i>
+        <i class="bx bx-filter"></i>
+    </div>
+
+    <!-- Ajoutez le reste de votre contenu ici, par exemple un tableau -->
+    <table>
+        <!-- ... Votre tableau ... -->
+    </table>
+{% endblock %}

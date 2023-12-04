@@ -1,0 +1,61 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block head %}
+    {{ parent() }}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="{{ asset('assets/css/home.css') }}">
+    <script src="{{ asset('assets/js/home/home.js') }}"></script>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div id="text-container">
+            <div id="animated-text"></div>
+        </div>
+        <div id="image-container">
+            <img src="assets/img/orangelogo.png" alt="Description of the image">
+        </div>
+        <div id="underline"></div>
+    </div>
+    <div class="black-band">
+        <div class="warning">
+            <p><strong>Warning!</strong> test test test test test test test test test test </p>
+        </div>
+    </div>
+   <div class="image-band">
+    <div id="carousel-container" class="carousel-container">
+        <div class="carousel-slide">
+            <img class="scaled-image" src="{{ asset('assets/img/elephant.jpg') }}" alt="test">
+        </div>
+         <div class="carousel-slide">
+            <img class="scaled-image" src="{{ asset('assets/img/orangeentreprise.png') }}" alt="">
+        </div>
+         <div class="carousel-slide">
+            <img class="scaled-image" src="{{ asset('assets/img/elephant.jpg') }}" alt="">
+        </div>
+         <div class="carousel-slide">
+            <img class="scaled-image" src="{{ asset('assets/img/orangeentreprise.png') }}" alt="">
+        </div>
+        <!-- Add more slides as needed -->
+    </div>
+    <div class="button-container">
+        <button id="prev-button" class="carousel-button" onclick="changeImage(-1)"></button>
+        <button id="next-button" class="carousel-button" onclick="changeImage(1)"></button>
+    </div>
+    <div id="carousel-dots" class="carousel-dots"></div>
+</div>
+    <br>
+    <br>
+    <br>
+    <div class="horizontal-buttons">
+        <i class="fas fa-home horizontal-icon"></i>
+        <i class="fas fa-envelope horizontal-icon"></i>
+        <i class="fas fa-globe horizontal-icon"></i>
+        <i class="fas fa-user horizontal-icon"></i>
+        <i class="fas fa-cog horizontal-icon"></i>
+    </div>
+
+</div>
+{% endblock %}

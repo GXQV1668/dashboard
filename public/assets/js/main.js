@@ -1,8 +1,9 @@
-// main_script.js
-
+// main.js
 document.addEventListener('DOMContentLoaded', function () {
     const listItems = document.querySelectorAll(".sidebar-list li");
-
+    function testJavaScript() {
+        console.log('Le fichier JavaScript est correctement lié.');
+    }
     listItems.forEach((item) => {
         item.addEventListener("click", () => {
             let isActive = item.classList.contains("active");
@@ -11,8 +12,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 el.classList.remove("active");
             });
 
-            if (isActive) item.classList.remove("active");
-            else item.classList.add("active");
+            if (!isActive) {
+                item.classList.add("active");
+            }
         });
     });
 
@@ -21,10 +23,17 @@ document.addEventListener('DOMContentLoaded', function () {
     const sidebar = document.querySelector(".sidebar");
 
     toggleSidebar.addEventListener("click", () => {
-        sidebar.classList.toggle("close");
+        toggleSidebarFunction();
     });
 
-    logo.addEventListener("click", () => {
+    function toggleSidebarFunction() {
         sidebar.classList.toggle("close");
-    });
+    }
+
+    // Check if logo element exists before adding event listener
+    if (logo) {
+        logo.addEventListener("click", () => {
+            toggleSidebarFunction();
+        });
+    }
 });

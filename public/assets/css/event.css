@@ -1,0 +1,54 @@
+/* styles.css */
+
+.page-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 80vh;
+}
+
+.section {
+  text-align: center;
+}
+
+.section-icon {
+  font-size: 96px; /* Doubler la taille de la police */
+  color: orange;
+}
+
+.action-buttons, .instruction-buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 40px; /* Doubler la marge supérieure */
+}
+
+.action-buttons button, .instruction-buttons button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  margin: 0 10px; /* Ajouter de la marge horizontale entre les boutons */
+}
+
+.action-buttons button i, .instruction-buttons button i {
+  font-size: 48px; /* Doubler la taille de la police */
+  color: black;
+  transition: color 0.3s;
+}
+
+/* Hover vert pour + */
+#plus-act:hover i,
+#plus-con:hover i {
+  color: green;
+}
+
+/* Hover jaune pour crayon */
+#pencil-act:hover i,
+#pencil-con:hover i {
+  color: yellow;
+}
+
+/* Hover rouge pour poubelle */
+#trash-act:hover i,
+#trash-con:hover i {
+  color: red;
+}

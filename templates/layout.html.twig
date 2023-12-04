@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Box Icons  -->
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Styles  -->
+    <link rel="shortcut icon" href="{{ asset('assets/img/orange.ico') }}" type="image/x-icon">
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+    {% block head %}
+    <!-- Add additional head content here if needed -->
+    {% endblock %}
+</head>
+<body>
+<div class="navbar">
+    {% block navbar %}
+        <div class="toggle-sidebar" onclick="toggleSidebar()">
+            <i class='bx bx-menu' style="color: white;"></i>
+            <div class="text"></div>
+        </div>
+
+        <div class="navbar-icons">
+            
+            <a href="" class="navbar-icon" id="home-icon">
+                <i class='bx bx-plus' style="color: orange; font-size: 24px; margin-right: 10px;"></i>
+            </a>
+            <!-- Nouvelle page "Accueil" -->
+            <a href="" class="navbar-icon" id="home-icon">
+                <i class='bx bx-question-mark' style="color: orange; font-size: 24px; margin-right: 10px;"></i>
+            </a>
+
+            <!-- Nouvelle page "Page1" -->
+            <a href="" class="navbar-icon" id="page1-icon">
+                <i class='bx bx-lock' style="color: orange; font-size: 24px; margin-right: 10px;"></i>
+            </a>
+
+            <!-- Nouvelle page "Page2" -->
+            <a href="" class="navbar-icon" id="page2-icon">
+                <i class='bx bx-door-open' style="color: orange; font-size: 24px; margin-right: 10px;"></i>
+            </a>
+            <!-- Ajoutez autant d'icônes que nécessaire -->
+        </div>
+    {% endblock %}
+</div>
+
+
+
+
+
+    <div class="sidebar close">
+        {% block sidebar %}
+            <!-- Contenu de la sidebar avec des icônes -->
+            <a href="{{ path('homepage') }}" class="sidebar-icon">
+                <i class='bx bx-home' style="color: orange;"></i>
+                <span class="name" style="color: white;">Accueil</span>
+            </a>
+            <a href="{{ path('event') }}" class="sidebar-icon">
+                <i class='bx bx-calendar' style="color: orange;"></i>
+                <span class="name" style="color: white;">Événements</span>
+            </a>
+            <a href="{{ path('demand') }}" class="sidebar-icon">
+                <i class='bx bx-edit-alt' style="color: orange;"></i>
+                <span class="name" style="color: white;">Demandes</span>
+            </a>
+            <a href="{{ path('board') }}" class="sidebar-icon">
+                <i class='bx bx-bar-chart-alt' style="color: orange;"></i>
+                <span class="name" style="color: white;">Board</span>
+            </a>
+            <a href="{{ path('search') }}" class="sidebar-icon">
+                <i class='bx bx-search' style="color: orange;"></i>
+                <span class="name" style="color: white;">Recherche</span>
+            </a>
+            <a href="{{ path('useradministration') }}" class="sidebar-icon">
+                <i class='bx bx-user' style="color: orange;"></i>
+                <span class="name" style="color: white;">Administration Utilisateur</span>
+            </a>
+            <a href="{{ path('dashboard') }}" class="sidebar-icon">
+                <i class='bx bx-grid-alt' style="color: orange;"></i>
+                <span class="name" style="color: white;">Analyse</span>
+            </a>
+            <a href="{{ path('masterdashboard') }}" class="sidebar-icon">
+                <i class='bx bx-layer' style="color: orange;"></i>
+                <span class="name" style="color: white;">Dashboard MDS</span>
+            </a>
+            <a href="{{ path('eventmanager') }}" class="sidebar-icon">
+                <i class='bx bx-calendar-event' style="color: orange;"></i>
+                <span class="name" style="color: white;">Gestion des Événements</span>
+            </a>
+            <a href="{{ path('transfert') }}" class="sidebar-icon">
+                <i class='bx bx-transfer' style="color: orange;"></i>
+                <span class="name" style="color: white;">Transfert</span>
+            </a>
+            <a href="{{ path('settings') }}" class="sidebar-icon">
+                <i class='bx bx-cog' style="color: orange;"></i>
+                <span class="name" style="color: white;">Paramètres</span>
+            </a>
+        {% endblock %}
+    </div>
+
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+
+    <!-- Link JS -->
+    {% block javascripts %}
+        <script src="{{ asset('assets/js/main.js') }}"></script>
+    {% endblock %}
+    
+</body>
+<footer>  
+</footer>
+</html>
