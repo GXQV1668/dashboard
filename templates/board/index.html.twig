@@ -1,19 +1,34 @@
 {% extends 'layout.html.twig' %}
 
-{% block title %}MDS vxxxxx{% endblock %}
+{% block title %}Actions/Consigne{% endblock %}
 
-{% block body %}
-    <h1 style="text-align: center;">MDS vxxxxx</h1>
-    <div style="text-align: right;">{{ "now"|date("Y-m-d H:i:s") }}</div>
+{% block head %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('assets/css/event.css') }}">
+{% endblock %}
 
-    <!-- Ajoutez vos icônes de filtres ici, par exemple -->
-    <div style="display: flex; justify-content: space-between; margin-top: 20px;">
-        <i class="bx bx-filter"></i>
-        <i class="bx bx-filter"></i>
+{% block content %}
+    <div class="page-container">
+        <div class="section">
+            <i class="bx bx-file section-icon"></i>
+            <h2>Consigne</h2>
+            <div class="instruction-buttons">
+                <!-- Attribuer un ID unique à chaque bouton -->
+                <button id="plus-con"> <i class="bx bx-plus"></i></button>
+                <button id="pencil-con"> <i class="bx bx-pencil"></i></button>
+                <button id="trash-con"> <i class="bx bx-trash"></i></button>
+            </div>
+        </div>
+
+        <div class="section">
+            <i class="bx bx-wrench section-icon"></i>
+            <h2>Actions</h2>
+            <div class="action-buttons">
+                <!-- Attribuer un ID unique à chaque bouton -->
+                <button id="plus-act"> <i class="bx bx-plus"></i></button>
+                <button id="pencil-act"> <i class="bx bx-pencil"></i></button>
+                <button id="trash-act"> <i class="bx bx-trash"></i></button>
+            </div>
+        </div>
     </div>
-
-    <!-- Ajoutez le reste de votre contenu ici, par exemple un tableau -->
-    <table>
-        <!-- ... Votre tableau ... -->
-    </table>
 {% endblock %}

@@ -40,3 +40,4 @@ transfert:
 useradministration:
     path: /useradministration
     controller: App\Controller\UserAdministrationController::index
+    methods: [GET]
