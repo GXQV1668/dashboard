@@ -10,58 +10,56 @@
 {% endblock %}
 
 {% block content %}
-    <div class="container">
-        <div id="text-container">
-            <div id="animated-text"></div>
+   <div class="header">
+        <div class="banner"> 
+            <h1>Master de Supervision</h1>
+            <p>Bienvenue sur le master de supervision</p>
+            <a href="index.html">Effectuer une Demandes</a>
         </div>
-        <div id="image-container">
-            <img src="assets/img/orangelogo.png" alt="Description of the image">
-        </div>
-        <div id="underline"></div>
-    </div>
-    <div class="black-band">
-        <div class="warning">
-            <p><strong>Warning!</strong> test test test test test test test test test test </p>
-        </div>
-    </div>
-   <div class="image-band">
-    <div id="carousel-container" class="carousel-container">
-        <div class="carousel-slide">
-            <img class="scaled-image" src="{{ asset('assets/img/elephant.jpg') }}" alt="test">
-        </div>
-         <div class="carousel-slide">
-            <img class="scaled-image" src="{{ asset('assets/img/orangeentreprise.png') }}" alt="">
-        </div>
-         <div class="carousel-slide">
-            <img class="scaled-image" src="{{ asset('assets/img/elephant.jpg') }}" alt="">
-        </div>
-         <div class="carousel-slide">
-            <img class="scaled-image" src="{{ asset('assets/img/orangeentreprise.png') }}" alt="">
-        </div>
-        <div class="carousel-slide">
-            <img class="scaled-image" src="{{ asset('assets/img/orangeentreprise.png') }}" alt="">
-        </div>
-        <div class="carousel-slide">
-            <img class="scaled-image" src="{{ asset('assets/img/orangeentreprise.png') }}" alt="">
-        </div>
-        <!-- Add more slides as needed -->
-    </div>
-    <div class="button-container">
-        <button id="prev-button" class="carousel-button" onclick="changeImage(-1)"></button>
-        <button id="next-button" class="carousel-button" onclick="changeImage(1)"></button>
-    </div>
-    <div id="carousel-dots" class="carousel-dots"></div>
 </div>
-    <br>
-    <br>
-    <br>
-    <div class="horizontal-buttons">
-        <i class="fas fa-home horizontal-icon"></i>
-        <i class="fas fa-envelope horizontal-icon"></i>
-        <i class="fas fa-globe horizontal-icon"></i>
-        <i class="fas fa-user horizontal-icon"></i>
-        <i class="fas fa-cog horizontal-icon"></i>
+  <div class="container">
+        <div class="text">
+            <h1>Fonctions</h1>
+            <p>Consulter les differentes option du Master de supervision</p>
+        </div>
+        <div class="main">
+            <div class="single">
+                <i class="fas fa-cloud-download-alt"></i>
+                <p>Telecharger le fichier de supervision</p>
+                <a href="index.html">Consulter</a>
+            </div>
+            <div class="single">
+                <i class="fas fa-cogs"></i>
+                <p>Fiche</p>
+                <a href="index.html">Consulter</a>
+            </div>
+            <div class="single">
+                <i class="fas fa-wrench"></i>
+                <p>Modifier un evenement</p>
+                <a href="index.html">Consulter</a>
+            </div>
+        </div>
+    <footer>
+    <div class="footer-content">
+        <!-- Your existing content goes here -->
+
+        <h1>Objectif de cette application</h1>
+        <p class="txt">Les principaux objectifs de ce projet sont les suivants : 
+            • Migration du fichier Excel actuel vers une application web. 
+            • Centralisation des informations sur les erreurs et les solutions pour une gestion plus efficace. 
+            • Automatisation des processus de résolution grâce à l'intégration de scripts open source. 
+            • Amélioration de la réactivité de notre équipe de support technique au sein de la branche DTSI/SI/SPIRIT/TPEXS/ELIOS.
+        </p>
+
+        <!-- Contact information and links -->
+   <div class="contact-section">
+        <h2>Nous Contacter</h2>
+        <a href="mailto:example@example.com"><span class="fas fa-envelope"></span></a>
+        <a href="https://teams.microsoft.com/" target="_blank"><span class="fab fa-microsoft"></span></a>
+        <a href="https://github.com/yourusername/your-repo" target="_blank"><span class="fab fa-github"></span></a>
     </div>
 
+    </div>
+</footer>
 </div>
 {% endblock %}

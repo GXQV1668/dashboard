@@ -1,103 +1,160 @@
-console.log("Le fichier home.js est bien test.");
+const $window = $(window);
+const $body = $('body');
 
-document.addEventListener('DOMContentLoaded', () => {
-    animatePage(); // Call the main function
-});
+class Slideshow {
+	constructor (userOptions = {}) {
+    const defaultOptions = {
+      $el: $('.slideshow'),
+      showArrows: false,
+      showPagination: true,
+      duration: 10000,
+      autoplay: true
+    }
+    
+    let options = Object.assign({}, defaultOptions, userOptions);
+    
+		this.$el = options.$el;
+		this.maxSlide = this.$el.find($('.js-slider-home-slide')).length;
+    this.showArrows = this.maxSlide > 1 ? options.showArrows : false;
+    this.showPagination = options.showPagination;
+		this.currentSlide = 1;
+		this.isAnimating = false;
+		this.animationDuration = 1200;
+		this.autoplaySpeed = options.duration;
+		this.interval;
+		this.$controls = this.$el.find('.js-slider-home-button');
+    this.autoplay = this.maxSlide > 1 ? options.autoplay : false;
 
-function animatePage() {
-    animateText();
-    setupImageCarousel();
+		this.$el.on('click', '.js-slider-home-next', (event) => this.nextSlide());
+		this.$el.on('click', '.js-slider-home-prev', (event) => this.prevSlide());
+    this.$el.on('click', '.js-pagination-item', event => {
+      if (!this.isAnimating) {
+        this.preventClick();
+  this.goToSlide(event.target.dataset.slide);
+      }
+    });
+
+		this.init();
+	}
+  
+  init() {
+    this.goToSlide(1);
+    if (this.autoplay) {
+      this.startAutoplay();
+    }
+    
+    if (this.showPagination) {
+      let paginationNumber = this.maxSlide;
+      let pagination = '<div class="pagination"><div class="container">';
+      
+      for (let i = 0; i < this.maxSlide; i++) {
+        let item = `<span class="pagination__item js-pagination-item ${ i === 0 ? 'is-current' : ''}" data-slide=${i + 1}>${i + 1}</span>`;
+        pagination  = pagination + item;
+      }
+      
+      pagination = pagination + '</div></div>';
+      
+      this.$el.append(pagination);
+    }
+  }
+  
+  preventClick() {
+		this.isAnimating = true;
+		this.$controls.prop('disabled', true);
+		clearInterval(this.interval);
+
+		setTimeout(() => {
+			this.isAnimating = false;
+			this.$controls.prop('disabled', false);
+      if (this.autoplay) {
+			  this.startAutoplay();
+      }
+		}, this.animationDuration);
+	}
+
+	goToSlide(index) {    
+    this.currentSlide = parseInt(index);
+    
+    if (this.currentSlide > this.maxSlide) {
+      this.currentSlide = 1;
+    }
+    
+    if (this.currentSlide === 0) {
+      this.currentSlide = this.maxSlide;
+    }
+    
+    const newCurrent = this.$el.find('.js-slider-home-slide[data-slide="'+ this.currentSlide +'"]');
+    const newPrev = this.currentSlide === 1 ? this.$el.find('.js-slider-home-slide').last() : newCurrent.prev('.js-slider-home-slide');
+    const newNext = this.currentSlide === this.maxSlide ? this.$el.find('.js-slider-home-slide').first() : newCurrent.next('.js-slider-home-slide');
+    
+    this.$el.find('.js-slider-home-slide').removeClass('is-prev is-next is-current');
+    this.$el.find('.js-pagination-item').removeClass('is-current');
+    
+		if (this.maxSlide > 1) {
+      newPrev.addClass('is-prev');
+      newNext.addClass('is-next');
+    }
+    
+    newCurrent.addClass('is-current');
+    this.$el.find('.js-pagination-item[data-slide="'+this.currentSlide+'"]').addClass('is-current');
+  }
+  
+  nextSlide() {
+    this.preventClick();
+    this.goToSlide(this.currentSlide + 1);
+	}
+   
+	prevSlide() {
+    this.preventClick();
+    this.goToSlide(this.currentSlide - 1);
+	}
+
+	startAutoplay() {
+		this.interval = setInterval(() => {
+			if (!this.isAnimating) {
+				this.nextSlide();
+			}
+		}, this.autoplaySpeed);
+	}
+
+	destroy() {
+		this.$el.off();
+	}
 }
 
-function animateText() {
-    const textElement = document.getElementById('animated-text');
-    const phrases = [
-        "Bonjour!",
-        "Hello!",
-        "¡Hola!",
-        "Ciao!",
-        "Hallo!",
-        "Olá!",
-        "여보세요!",
-        "你好！",
-        "مرحبًا!",
-        "Привет!",
-        "Hej!"
-    ];
+(function() {
+	let loaded = false;
+	let maxLoad = 3000;  
+  
+	function load() {
+		const options = {
+      showPagination: true
+    };
 
-    let phraseIndex = 0;
-    let letterIndex = 0;
-    const typingSpeed = 100; // Delay in milliseconds between each letter
-    const spaceSpeed = 5000; // Delay in milliseconds between each phrase
+    let slideShow = new Slideshow(options);
+	}
+  
+	function addLoadClass() {
+		$body.addClass('is-loaded');
 
-    function typeNextLetter() {
-        const currentPhrase = phrases[phraseIndex];
+		setTimeout(function() {
+			$body.addClass('is-animated');
+		}, 600);
+	}
+  
+	$window.on('load', function() {
+		if(!loaded) {
+			loaded = true;
+			load();
+		}
+	});
+  
+	setTimeout(function() {
+		if(!loaded) {
+			loaded = true;
+			load();
+		}
+	}, maxLoad);
 
-        if (letterIndex < currentPhrase.length) {
-            // Add the current letter to the text
-            textElement.innerText += currentPhrase[letterIndex];
-            letterIndex++;
-
-            // Schedule the addition of the next letter
-            setTimeout(typeNextLetter, typingSpeed);
-        } else {
-            // All letters have been written, move to the next phrase
-            setTimeout(() => {
-                // Clear the current text
-                textElement.textContent = '';
-                letterIndex = 0;
-                phraseIndex = (phraseIndex + 1) % phrases.length;
-                // Start writing the next phrase
-                setTimeout(typeNextLetter, typingSpeed);
-            }, spaceSpeed); // Wait a bit before moving to the next phrase
-        }
-    }
-
-    // Start the animation with the first phrase
-    typeNextLetter();
-}
-
-function setupImageCarousel() {
-    let currentSlide = 0;
-    const slides = document.querySelectorAll('.carousel-slide');
-    const dotsContainer = document.getElementById('carousel-dots');
-
-    function showSlide(index) {
-        slides.forEach((slide) => {
-            slide.style.display = 'none';
-        });
-
-        slides[index].style.display = 'block';
-        updateDots(index);
-        currentSlide = index;
-    }
-
-    function updateDots(index) {
-        const dots = dotsContainer.querySelectorAll('.carousel-dot');
-        dots.forEach((dot, dotIndex) => {
-            dot.classList.toggle('active-dot', dotIndex === index);
-        });
-    }
-
-    function changeImage(direction) {
-        currentSlide = (currentSlide + direction + slides.length) % slides.length;
-        showSlide(currentSlide);
-    }
-
-    function createDots() {
-        slides.forEach((_, index) => {
-            const dot = document.createElement('div');
-            dot.className = 'carousel-dot';
-            dot.onclick = () => showSlide(index);
-            dotsContainer.appendChild(dot);
-        });
-    }
-
-    createDots();
-    showSlide(currentSlide);
-
-    // Automatic scrolling
-    setInterval(() => {
-        changeImage(1);
-    }, 3000); // Adjust the interval as needed (in milliseconds)
-}
+	addLoadClass();
+})();

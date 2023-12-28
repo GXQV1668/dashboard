@@ -1,5 +1,9 @@
 {
   "dependencies": {
+    "tailwindcss": "^3.4.0",
     "yarn": "^1.22.21"
+  },
+  "devDependencies": {
+    "@symfony/webpack-encore": "^4.5.0"
   }
 }
