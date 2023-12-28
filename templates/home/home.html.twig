@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="{{ asset('assets/css/home.css') }}">
     <script src="{{ asset('assets/js/home/home.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+
 {% endblock %}
 
 {% block content %}
@@ -39,27 +41,13 @@
                 <a href="index.html">Consulter</a>
             </div>
         </div>
-    <footer>
-    <div class="footer-content">
-        <!-- Your existing content goes here -->
-
-        <h1>Objectif de cette application</h1>
-        <p class="txt">Les principaux objectifs de ce projet sont les suivants : 
-            • Migration du fichier Excel actuel vers une application web. 
-            • Centralisation des informations sur les erreurs et les solutions pour une gestion plus efficace. 
-            • Automatisation des processus de résolution grâce à l'intégration de scripts open source. 
-            • Amélioration de la réactivité de notre équipe de support technique au sein de la branche DTSI/SI/SPIRIT/TPEXS/ELIOS.
-        </p>
-
-        <!-- Contact information and links -->
-   <div class="contact-section">
-        <h2>Nous Contacter</h2>
-        <a href="mailto:example@example.com"><span class="fas fa-envelope"></span></a>
-        <a href="https://teams.microsoft.com/" target="_blank"><span class="fab fa-microsoft"></span></a>
-        <a href="https://github.com/yourusername/your-repo" target="_blank"><span class="fab fa-github"></span></a>
-    </div>
-
-    </div>
-</footer>
-</div>
+        <footer>
+        <!-- Footer content here -->
+        <div class="contact-section">
+            <h2>Nous Contacter</h2>
+            <a href="mailto:example@example.com"><span class="fas fa-envelope"></span></a>
+            <a href="https://teams.microsoft.com/" target="_blank"><span class="fab fa-microsoft"></span></a>
+            <a href="https://github.com/yourusername/your-repo" target="_blank"><span class="fab fa-github"></span></a>
+        </div>
+   </footer>
 {% endblock %}
