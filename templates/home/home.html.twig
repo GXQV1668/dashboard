@@ -4,7 +4,6 @@
 
 {% block head %}
     {{ parent() }}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="{{ asset('assets/css/home.css') }}">
     <script src="{{ asset('assets/js/home/home.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
@@ -13,7 +12,7 @@
 
 {% block content %}
    <div class="header">
-        <div class="banner"> 
+        <div class="banner">
             <h1>Master de Supervision</h1>
             <p>Bienvenue sur le master de supervision</p>
             <a href="index.html">Effectuer une Demandes</a>
@@ -36,7 +35,7 @@
                 <a href="index.html">Consulter</a>
             </div>
             <div class="single">
-                <i class="fas fa-wrench"></i>
+               <i class="fas fa-wrench"></i> 
                 <p>Modifier un evenement</p>
                 <a href="index.html">Consulter</a>
             </div>
@@ -48,6 +47,7 @@
             <a href="mailto:example@example.com"><span class="fas fa-envelope"></span></a>
             <a href="https://teams.microsoft.com/" target="_blank"><span class="fab fa-microsoft"></span></a>
             <a href="https://github.com/yourusername/your-repo" target="_blank"><span class="fab fa-github"></span></a>
+
         </div>
    </footer>
 {% endblock %}

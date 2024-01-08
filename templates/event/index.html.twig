@@ -1,0 +1,32 @@
+{% block title %}{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="{{ asset('assets/css/event.css') }}">
+    <script src="{{ asset('assets/js//event.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+
+{% endblock %}
+
+{% block content %}
+<div class="ticket">
+      <div class="top">
+      </div>
+      <div class="bottom">
+        <h1>BRITISH MUSEUM PRESENTS: HOKUSAI</h1>
+        <div class="detail">
+          <p>Director: Patricia Wheatley</p>
+          <p>Genre: Documentary</p>
+          <p>Year: 2017</p>
+          <p>Duration: 87 min</p>
+          <p>Language: English</p>
+        </div>
+        <div class="datetime">
+          <div class="date">Jan 20</div>
+          <div class="time">17:00</div>
+        </div>
+      </div>
+    </div>
+</div>
+
+{% endblock %}
