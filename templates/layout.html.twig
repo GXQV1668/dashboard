@@ -24,18 +24,11 @@
 
         <div class="navbar-icons">
             
-            <a href="" class="navbar-icon" id="home-icon">
-                <i class='bx bx-plus' style="color: orange; font-size: 24px; margin-right: 10px;"></i>
-            </a>
             <!-- Nouvelle page "Accueil" -->
             <a href="" class="navbar-icon" id="home-icon">
-                <i class='bx bx-question-mark' style="color: orange; font-size: 24px; margin-right: 10px;"></i>
+                <i class='bx bx-search' style="color: orange; font-size: 24px; margin-right: 10px;"></i>
             </a>
 
-            <!-- Nouvelle page "Page1" -->
-            <a href="" class="navbar-icon" id="page1-icon">
-                <i class='bx bx-lock' style="color: orange; font-size: 24px; margin-right: 10px;"></i>
-            </a>
 
             <!-- Nouvelle page "Page2" -->
             <a href="" class="navbar-icon" id="page2-icon">
@@ -67,11 +60,7 @@
             </a>
             <a href="{{ path('board') }}" class="sidebar-icon">
                 <i class='bx bx-bar-chart-alt' style="color: orange;"></i>
-                <span class="name" style="color: white;">Board</span>
-            </a>
-            <a href="{{ path('search') }}" class="sidebar-icon">
-                <i class='bx bx-search' style="color: orange;"></i>
-                <span class="name" style="color: white;">Recherche</span>
+                <span class="name" style="color: white;">Fiche</span>
             </a>
             <a href="{{ path('useradministration') }}" class="sidebar-icon">
                 <i class='bx bx-user' style="color: orange;"></i>
@@ -90,12 +79,9 @@
                 <span class="name" style="color: white;">Gestion des Événements</span>
             </a>
             <a href="{{ path('transfert') }}" class="sidebar-icon">
-                <i class='bx bx-transfer' style="color: orange;"></i>
-                <span class="name" style="color: white;">Transfert</span>
+                <i class='bx bx-download' style="color: orange;"></i>
+                <span class="name" style="color: white;">Telecharger</span>
             </a>
-            <a href="{{ path('settings') }}" class="sidebar-icon">
-                <i class='bx bx-cog' style="color: orange;"></i>
-                <span class="name" style="color: white;">Paramètres</span>
             </a>
         {% endblock %}
     </div>
