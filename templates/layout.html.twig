@@ -8,7 +8,6 @@
     <!-- Box Icons  -->
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     <!-- Styles  -->
-    <link rel="shortcut icon" href="{{ asset('assets/img/orange.ico') }}" type="image/x-icon">
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     {% block head %}
     <!-- Add additional head content here if needed -->
@@ -23,15 +22,15 @@
         </div>
 
         <div class="navbar-icons">
-            
+
             <!-- Nouvelle page "Accueil" -->
-            <a href="" class="navbar-icon" id="home-icon">
+            <a href="#" class="navbar-icon" id="home-icon">
                 <i class='bx bx-search' style="color: orange; font-size: 24px; margin-right: 10px;"></i>
             </a>
 
 
             <!-- Nouvelle page "Page2" -->
-            <a href="" class="navbar-icon" id="page2-icon">
+            <a href="#" class="navbar-icon" id="page2-icon">
                 <i class='bx bx-door-open' style="color: orange; font-size: 24px; margin-right: 10px;"></i>
             </a>
             <!-- Ajoutez autant d'icônes que nécessaire -->
@@ -74,7 +73,6 @@
                 <i class='bx bx-download' style="color: orange;"></i>
                 <span class="name" style="color: white;">Telecharger</span>
             </a>
-            </a>
         {% endblock %}
     </div>
 
@@ -86,6 +84,6 @@
     {% block javascripts %}
         <script src="{{ asset('assets/js/main.js') }}"></script>
     {% endblock %}
-    
+
 </body>
 </html>

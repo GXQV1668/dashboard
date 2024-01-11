@@ -1,104 +1,40 @@
-{# templates/demandes/index.html.twig #}
+{% extends 'layout.html.twig' %}
 
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Demandes</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
+{% block head %}
+    <link rel="stylesheet" href="{{ asset('assets/css/demand.css') }}" />
+    <!-- Supprimez la ligne avec Font Awesome pour tester avec du texte simple -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+{% endblock %}
 
-        h1 {
-            color: #2196F3;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-
-        th, td {
-            padding: 10px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
-
-        .note {
-            border-left: 6px solid;
-        }
-
-        .danger {
-            background-color: #ffdddd;
-            border-color: #f44336;
-        }
-
-        .success {
-            background-color: #ddffdd;
-            border-color: #04AA6D;
-        }
-
-        .info {
-            background-color: #e7f3fe;
-            border-color: #2196F3;
-        }
-
-        .warning {
-            background-color: #ffffcc;
-            border-color: #ffeb3b;
-        }
-
-        .pagination-container {
-            margin-top: 20px;
-            text-align: center; /* Centrer horizontalement */
-        }
-
-        .pagination {
-            display: inline-block;
-        }
-
-        .pagination a {
-            color: #2196F3;
-            padding: 8px 16px;
-            text-decoration: none;
-            border: 1px solid #ddd;
-            margin: 0 4px;
-            border-radius: 4px;
-            transition: background-color 0.3s;
-        }
-
-        .pagination a:hover {
-            background-color: #ddd;
-        }
-
-        .pagination .active {
-            background-color: #2196F3;
-            color: white;
-        }
-    </style>
-</head>
+{% block content %}
 <body>
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button type="submit">Rechercher</button>
+    {{ form_end(form) }}
     <h1>Liste des demandes</h1>
     <table>
         <thead>
             <tr>
+                <th>ID</th>
                 <th>Titre</th>
                 <th>Status</th>
+                <th>Date</th>
+                <th>Created By</th>
             </tr>
         </thead>
         <tbody>
             {% for demande in pagination %}
                 <tr>
                     <td class="note {{ demande.getStatus()|default('unknown') }}">
-                        <strong>{{ demande.getTitle() }}</strong>
+                        {{ demande.getId() }}
                     </td>
+                    <td>{{ demande.title }}</td>
                     <td class="{{ demande.getStatus()|default('unknown') }}">
                         {{ demande.getStatus() }}
                     </td>
+                    <td>{{ demande.getCreatedAt()|date('Y-m-d H:i:s') }}</td>
+                    <td><a href="{{ path('demand_view', {'id': 123}) }}">Voir la Demande</a></td>
                 </tr>
             {% endfor %}
         </tbody>
@@ -111,3 +47,4 @@
     </div>
 </body>
 </html>
+{% endblock %}

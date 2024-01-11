@@ -14,6 +14,11 @@ demand:
     path: /demand
     controller: App\Controller\DemandController::index
 
+# config/routes.yaml
+demand_view:
+    path: "/demand/{id}"
+    controller: 'App\Controller\DemandController::view'
+
 event:
     path: /event
     controller: App\Controller\EventController::index

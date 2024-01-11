@@ -5,49 +5,14 @@
 {% block head %}
     {{ parent() }}
     <link rel="stylesheet" href="{{ asset('assets/css/home.css') }}">
+    <!-- Inclure jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <!-- Vos autres scripts -->
     <script src="{{ asset('assets/js/home/home.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
-
 {% endblock %}
 
-{% block content %}
-   <div class="header">
-        <div class="banner">
-            <h1>Master de Supervision</h1>
-            <p>Bienvenue sur le master de supervision</p>
-            <a href="index.html">Effectuer une Demandes</a>
-        </div>
-</div>
-  <div class="container">
-        <div class="text">
-            <h1>Fonctions</h1>
-            <p>Consulter les differentes option du Master de supervision</p>
-        </div>
-        <div class="main">
-            <div class="single">
-                <i class="fas fa-cloud-download-alt"></i>
-                <p>Telecharger le fichier de supervision</p>
-                <a href="index.html">Consulter</a>
-            </div>
-            <div class="single">
-                <i class="fas fa-cogs"></i>
-                <p>Fiche</p>
-                <a href="index.html">Consulter</a>
-            </div>
-            <div class="single">
-               <i class="fas fa-wrench"></i> 
-                <p>Modifier un evenement</p>
-                <a href="index.html">Consulter</a>
-            </div>
-        </div>
-        <footer>
-        <!-- Footer content here -->
-        <div class="contact-section">
-            <h2>Nous Contacter</h2>
-            <a href="mailto:example@example.com"><span class="fas fa-envelope"></span></a>
-            <a href="https://teams.microsoft.com/" target="_blank"><span class="fab fa-microsoft"></span></a>
-            <a href="https://github.com/yourusername/your-repo" target="_blank"><span class="fab fa-github"></span></a>
 
-        </div>
-   </footer>
+{% block content %}
+
 {% endblock %}

@@ -18,6 +18,7 @@ class User
      * @ORM\Column(type="integer")
      */
     private $id;
+    private $user;
 
     /**
      * @ORM\Column(type="string", length=255)
