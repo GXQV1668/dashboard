@@ -6,12 +6,15 @@
   "devDependencies": {
     "@babel/core": "^7.23.7",
     "@symfony/webpack-encore": "^4.5.0",
+    "postcss": "^8.4.33",
+    "postcss-loader": "^7.3.4",
+    "sass": "^1.70.0",
+    "sass-loader": "^13.3.3",
+    "webpack": "^5.89.0",
     "webpack-notifier": "^1.15.0"
   },
   "scripts": {
-    "dev-server": "encore dev-server",
     "dev": "encore dev",
-    "watch": "encore dev --watch",
     "build": "encore production"
   }
 }
